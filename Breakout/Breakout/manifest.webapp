@@ -1,0 +1,18 @@
+﻿{
+	"version": "0.6",
+	"name": "Breakout",
+	"description": "Jogue breakout no Firefox OS",
+	"launch_path": "/index.html",
+	"icons": {
+		"60": "/favicon.png",
+		"128": "/favicon128.png"
+	},
+	"developer": {
+		"name": "Cleber Matheus",
+		"url": "http://clebermatheus.users.sf.net"
+	},
+	"permissions":{
+	},
+	"installs_allowed_from": ["*"],
+	"default_locale": "pt-BR"
+}

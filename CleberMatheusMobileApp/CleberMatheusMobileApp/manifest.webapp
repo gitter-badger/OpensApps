@@ -1,0 +1,19 @@
+﻿{
+  "version": "1.0",
+  "name": "Cleber Matheus MobileApp",
+  "description": "Aplicativo do site Cleber Matheus",
+  "launch_path": "/index.html",
+  "icons": {
+	"32": "/favicon32x32.png",
+	"64": "/favicon64x64.png",
+    "128": "/favicon128x128.png"
+  },
+  "developer": {
+    "name": "Cleber Matheus",
+    "url": "http://clebermatheus.users.sf.net"
+  },
+	"permissions":{
+	},
+  "installs_allowed_from": ["*"],
+  "default_locale": "pt-BR"
+}
