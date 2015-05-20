@@ -1,4 +1,4 @@
-﻿function play(){
+function play(){
 	//Variáveis
 	var id1 = document.getElementById('breakout');
 	var menu1 = document.getElementById('menu');

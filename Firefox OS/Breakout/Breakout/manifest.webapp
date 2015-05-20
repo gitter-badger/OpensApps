@@ -1,5 +1,5 @@
-﻿{
-	"version": "0.6",
+{
+	"version": "0.7",
 	"name": "Breakout",
 	"description": "Jogue breakout no Firefox OS",
 	"launch_path": "/index.html",
