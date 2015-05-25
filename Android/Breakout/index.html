@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+	<!--
+		Este arquivo faz parte do Breakout;
+		
+		Breakout é Software Livre; você pode redistribui-lo e/ou
+		modificá-lo dentro dos termos da Licença Pública Geru GNU como
+		publicada pela Fundação do Software Livre (FSF); na versão 3 da Licença.
+		Este programa é distribuído na esperança que possa ser util,
+		mas SEM NENHUMA GARANTIA; sem uma garantia implicita de ADEQUAÇÂO a
+		qualquer MERCADO ou APLICAÇÃO EM PARTICULAR. Veja a Licença Pública Geral
+		GNU para maiores detalhes.
+		Você deve ter recebido uma cópia da Licença Pública Geral GNU junto com 
+		este programa, se não, escreva para a Fundação do Software Livre(FSF) Inc.,
+		51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA
+		
+		Breakout v0.7
+		Breakout -> Ano: 2013, 2015|Tipo: Mobile
+	-->
+	<head>
+		<meta charset="UTF-8"/>
+		<title>Breakout</title>
+		<link rel="stylesheet" href="index.css"/>
+		<meta name="generator" content="Firefox WebIDE"/>
+		<meta name="author" content="Cleber Matheus"/>
+		<link rel="shortcut icon" href="favicon.png"/>
+		<meta name="reply-to" content="clebermatheus@outlook.com"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	</head>
+	<body>
+		<header>
+			<h1>Breakout Beta 3</h1>
+		</header>
+		<section id="menu">
+			<a id="b1" href="javascript:play()">Jogar</a>
+			<a id="b2" href="javascript:window.close()">Sair</a>
+		</section>
+		<canvas id="breakout" height="460" width="318">
+			<p style="color: red;">O seu browser não suporta Canvas!</p>
+		</canvas>
+		<script type="text/javascript" async src="breakout.js"></script>
+	</body>
+</html>
