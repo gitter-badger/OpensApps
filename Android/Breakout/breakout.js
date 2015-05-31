@@ -1,18 +1,32 @@
+var rowcolors = ["rgb(128,16,16)", "#FF1C0A", "#FFFD0A", "#00A308", "#0008DB", "#FFFFFF"];
+var id1 = document.getElementById('breakout');
+var ads = document.getElementById('ads');
+
+document.getElementById('menu').addEventListener('load', menuColors(3), false);
+
+function menuColors(n){
+	for(var i = 1; i<=n; i++){
+		var x = document.getElementById('b'+i);
+		x.style.backgroundColor = rowcolors[i];
+		x.style.top = 50*i+"px";
+	}
+	ads.style.width = screen.width+"px";
+}
+
 function play(){
 	//Variáveis
-	var id1 = document.getElementById('breakout');
 	var menu1 = document.getElementById('menu');
 	var break1 = id1.getContext("2d");
 	var x=25, y=250, dx=2, dy=-4, ballr = 10;
 	var height1, width1, paddlex, bricks, nrows, ncols, brickwidth, brickheight, padding, i, j;
 	var paddleh=10, paddlew=75, canvasMinX=0, canvasMaxX=0, intervalId=0;
-	var rowcolors = ["rgb(128,16,16)", "#FF1C0A", "#FFFD0A", "#00A308", "#0008DB", "#FFFFFF"];
 	var paddlecolor = "#FFFFFF";
 	var ballcolor = "#FFFFFF";
 	var backcolor = "#000000";
 	rightDown = false;
 	leftDown = false;
 	
+	ads.style.display = 'none';
 	id1.style.display='block';
 	menu1.style.display='none';
 	document.getElementsByTagName('header')[0].style.display='none';
@@ -44,9 +58,6 @@ function play(){
 		canvasMinX = id1.offsetLeft;
 		canvasMaxX = canvasMinX + width1;
 	}
-	function initTouch(){
-		breakout.addEventListener("touchmove", onTouchMove, false);
-	}
 	function init_paddle(){
 		paddlex = width1/2;
 		paddleh = 10;
@@ -66,11 +77,15 @@ function play(){
 	}
 	//Touch
 	function onTouchMove(evt) {
-		if (evt.pageX > canvasMinX && evt.pageX < canvasMaxX) {
-			paddlex = evt.pageX - canvasMinX;
+		var touch = evt.changedTouches[0];
+		if (parseInt(touch.clientX) > canvasMinX && parseInt(touch.clientX) < canvasMaxX) {
+			paddlex = parseInt(touch.clientX) - canvasMinX;
 		}
 	}
-	window.addEventListener("touchmove", onTouchMove, false);
+	function initTouch(){
+		breakout.addEventListener("touchstart", onTouchMove, false);
+		breakout.addEventListener("touchmove", onTouchMove, false);
+	}
 	function clear() {
 		break1.clearRect(0, 0, width1, height1);
 	}
@@ -129,3 +144,5 @@ function play(){
 	init_mouse();
 	initTouch();
 }
+
+function options(){}
