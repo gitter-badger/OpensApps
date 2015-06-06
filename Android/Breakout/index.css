@@ -41,6 +41,17 @@ canvas{
 	bottom: 0px;
 }
 
+article{
+	top: 60px;
+	background-color: #FF1C0A;
+	position: fixed;
+}
+
+#back{
+	left: 0px;
+	position: fixed;
+}
+
 @media all and (orientation:landscape){
 	/* Será utilizado em Breve! */
 }

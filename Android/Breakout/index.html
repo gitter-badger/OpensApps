@@ -29,16 +29,25 @@
 	</head>
 	<body>
 		<header>
-			<h1>Breakout Beta 3</h1>
+			<h1></h1>
+			<a id="back" href="javascript:back()" style="display: none"><img src="./images/back.png"/></a>
 		</header>
 		<section id="menu">
 			<a id="b1" href="javascript:play()">Jogar</a>
 			<a id="b2" href="javascript:options()">Opções</a>
-			<a id="b3" href="javascript:window.close()">Sair</a>
+			<a id="b3" href="javascript:about()">Sobre</a>
+			<a id="b4" href="javascript:window.close()">Sair</a>
 		</section>
 		<canvas id="breakout" height="460" width="318">
 			<p style="color: red;">O seu browser não suporta Canvas!</p>
 		</canvas>
+		<section id="sobre" style="display: none">
+			<article>
+				<p>Jogo criado com o intuito de proporcionar uma experiência que seja o mais leve possível e intuitiva se perder a jogabilidade.</p>
+				<p>Breakout, 0.7 - 2015</p>
+				<p>Criado por Cleber Matheus (clebermatheus@outlook.com)</p>
+			</article>
+		</section>
 		<div id="ads">
 			<script type="text/javascript">
 				bb_bid = "1677784";

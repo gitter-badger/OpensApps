@@ -1,8 +1,12 @@
 var rowcolors = ["rgb(128,16,16)", "#FF1C0A", "#FFFD0A", "#00A308", "#0008DB", "#FFFFFF"];
 var id1 = document.getElementById('breakout');
 var ads = document.getElementById('ads');
+var sobre = document.getElementById('sobre');
+var version = "Breakout Beta 3";
 
-document.getElementById('menu').addEventListener('load', menuColors(3), false);
+//Inicianlizando partes essenciais
+document.getElementsByTagName('h1')[0].innerHTML = version;
+document.getElementById('menu').addEventListener('load', menuColors(4), false);
 
 function menuColors(n){
 	for(var i = 1; i<=n; i++){
@@ -29,6 +33,7 @@ function play(){
 	ads.style.display = 'none';
 	id1.style.display='block';
 	menu1.style.display='none';
+	sobre.style.display='none';
 	document.getElementsByTagName('header')[0].style.display='none';
 	window.addEventListener("resize",orient);
 	
@@ -146,3 +151,21 @@ function play(){
 }
 
 function options(){}
+
+function back(){
+	ads.style.display = 'block';
+	id1.style.display='none';
+	sobre.style.display='none';
+	document.getElementById('back').style.display='none';
+	document.getElementById('menu').style.display='block';
+	document.getElementsByTagName('header')[0].style.display='block';
+	document.getElementsByTagName('h1')[0].innerHTML = version;
+}
+
+function about(){
+	sobre.style.display='block';
+	id1.style.display='none';
+	document.getElementById('back').style.display='block';
+	document.getElementById('menu').style.display='none';
+	document.getElementsByTagName('h1')[0].innerHTML = "Sobre";
+}
