@@ -2,7 +2,7 @@ var rowcolors = ["rgb(128,16,16)", "#FF1C0A", "#FFFD0A", "#00A308", "#0008DB", "
 var id1 = document.getElementById('breakout');
 var ads = document.getElementById('ads');
 var sobre = document.getElementById('sobre');
-var version = "Breakout Beta 3";
+var version = "Breakout Beta 2.5";
 
 //Inicianlizando partes essenciais
 document.getElementsByTagName('h1')[0].innerHTML = version;

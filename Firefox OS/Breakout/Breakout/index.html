@@ -14,7 +14,7 @@
 		este programa, se não, escreva para a Fundação do Software Livre(FSF) Inc.,
 		51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA
 		
-		Breakout v0.7
+		Breakout v0.6.5
 		Breakout -> Ano: 2013, 2015|Tipo: Mobile
 	-->
 	<head>
@@ -25,18 +25,40 @@
 		<meta name="author" content="Cleber Matheus"/>
 		<link rel="shortcut icon" href="favicon.png"/>
 		<meta name="reply-to" content="clebermatheus@outlook.com"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
 	</head>
 	<body>
 		<header>
-			<h1>Breakout Beta 3</h1>
+			<h1></h1>
+			<a id="back" href="javascript:back()" style="display: none"><img src="./images/back.png"/></a>
 		</header>
 		<section id="menu">
 			<a id="b1" href="javascript:play()">Jogar</a>
-			<a id="b2" href="javascript:window.close()">Sair</a>
+			<a id="b2" href="javascript:options()">Opções</a>
+			<a id="b3" href="javascript:about()">Sobre</a>
+			<a id="b4" href="javascript:window.close()">Sair</a>
 		</section>
 		<canvas id="breakout" height="460" width="318">
 			<p style="color: red;">O seu browser não suporta Canvas!</p>
 		</canvas>
+		<section id="opt" style="display: none"></section>
+		<section id="sobre" style="display: none">
+			<article>
+				<p>Jogo criado com o intuito de proporcionar uma experiência que seja o mais leve possível e intuitiva se perder a jogabilidade.</p>
+				<p>Breakout, 0.6.5 - 2015</p>
+				<p>Criado por Cleber Matheus (clebermatheus@outlook.com)</p>
+			</article>
+		</section>
+		<div id="ads">
+			<script type="text/javascript">
+				bb_bid = "1677784";
+				bb_lang = "pt-BR";
+				bb_name = "custom";
+				bb_limit = "7";
+				bb_format = "bbc";
+			</script>
+			<script type="text/javascript" src="http://static.boo-box.com/javascripts/embed.js"></script>
+		</div>
 		<script type="text/javascript" async src="breakout.js"></script>
 	</body>
 </html>

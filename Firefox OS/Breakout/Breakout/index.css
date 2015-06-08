@@ -1,5 +1,5 @@
 html, body{
-	height: auto;
+	height: 100%;
 	padding: 0;
 	margin: 0;
 }
@@ -21,28 +21,37 @@ canvas{
 	display: none;
 }
 #menu{
-	left: 25%;
 	position: fixed;
 	top: 30px;
+	padding-left: 25%;
+	padding-right: 25%;
 }
-#b1, #b2{
+#menu a{
 	color: white;
-	height: 20px;
+	height: 40px;
 	text-decoration: none;
-	width: 160px;
-}
-#b1{
-	background-color: #FF1C0A;
+	width: 100%;
 	position: absolute;
-	top: 30px;
 }
-#b2{
-	background-color: #FFFD0A;
+
+#ads{
+	text-decoration: none;
+	width: 100%;
 	position: absolute;
+	bottom: 0px;
+}
+
+article{
 	top: 60px;
+	background-color: #FF1C0A;
+	position: fixed;
 }
+
+#back{
+	left: 0px;
+	position: fixed;
+}
+
 @media all and (orientation:landscape){
-	#b1, #b2{
-		width: 240px;
-	}
+	/* Será utilizado em Breve! */
 }
