@@ -1,8 +1,9 @@
 {
-	"version": "0.6.5",
+	"version": "0.7",
 	"name": "Breakout",
-	"description": "Jogue breakout no Android",
+	"description": "Jogue breakout no seu dispositivo Mobile",
 	"launch_path": "/index.html",
+	"orientation": "portrait",
 	"icons": {
 		"60": "/favicon.png",
 		"128": "/favicon128.png"

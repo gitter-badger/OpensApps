@@ -1,8 +1,26 @@
+/*
+	Este arquivo faz parte do Breakout;
+	
+	Breakout é Software Livre; você pode redistribui-lo e/ou
+	modificá-lo dentro dos termos da Licença Pública Geru GNU como
+	publicada pela Fundação do Software Livre (FSF); na versão 3 da Licença.
+	Este programa é distribuído na esperança que possa ser util,
+	mas SEM NENHUMA GARANTIA; sem uma garantia implicita de ADEQUAÇÂO a
+	qualquer MERCADO ou APLICAÇÃO EM PARTICULAR. Veja a Licença Pública Geral
+	GNU para maiores detalhes.
+	Você deve ter recebido uma cópia da Licença Pública Geral GNU junto com 
+	este programa, se não, escreva para a Fundação do Software Livre(FSF) Inc.,
+	51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA
+	
+	Breakout v0.7
+	Breakout -> Ano: 2013, 2015|Tipo: Mobile
+*/
+
 var rowcolors = ["rgb(128,16,16)", "#FF1C0A", "#FFFD0A", "#00A308", "#0008DB", "#FFFFFF"];
 var id1 = document.getElementById('breakout');
 var ads = document.getElementById('ads');
 var sobre = document.getElementById('sobre');
-var version = "Breakout Beta 2.5";
+var version = "Breakout Beta 3";
 
 //Inicianlizando partes essenciais
 document.getElementsByTagName('h1')[0].innerHTML = version;
@@ -35,11 +53,25 @@ function play(){
 	menu1.style.display='none';
 	sobre.style.display='none';
 	document.getElementsByTagName('header')[0].style.display='none';
-	window.addEventListener("resize",orient);
+	//window.addEventListener("resize",orient);
 	
 	function orient(){
 		id1.style.height=window.innerHeight+'px';
+		id1.style.width=window.innerWidth+'px';
 	}
+	/*screen.addEventListener("onmozorietationchange", orient2);
+	function orient2(){
+		switch(screen.orientation){
+			case "landscape":
+				id1.style.height = "318px";
+				id1.style.width = "460px";
+			break;
+			case "portrait":
+				id1.style.height = "460px";
+				id1.style.width = "318px";
+			break;
+		}
+	}*/
 	function init(){
 		width1 = id1.offsetWidth;
 		height1 = id1.offsetHeight;
