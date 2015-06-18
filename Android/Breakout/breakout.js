@@ -16,16 +16,23 @@
 	Breakout -> Ano: 2013, 2015|Tipo: Mobile
 */
 
-var rowcolors = ["rgb(128,16,16)", "#FF1C0A", "#FFFD0A", "#00A308", "#0008DB", "#FFFFFF"];
+//Elementos do Arquivo index.html
 var id1 = document.getElementById('breakout');
 var ads = document.getElementById('ads');
 var sobre = document.getElementById('sobre');
+var opcao = document.getElementById('opt');
+var menu1 = document.getElementById('menu');
+
+//Variáveis Essenciais para o Jogo
+var rowcolors = ["rgb(128,16,16)", "#FF1C0A", "#FFFD0A", "#00A308", "#0008DB", "#FFFFFF"];
 var version = "Breakout Beta 3";
+var ballcolor = "#FFFFFF";
 
-//Inicianlizando partes essenciais
+//Inicianlizando partes essenciais do Jogo
 document.getElementsByTagName('h1')[0].innerHTML = version;
-document.getElementById('menu').addEventListener('load', menuColors(4), false);
+menu1.addEventListener('load', menuColors(4), false);
 
+//Deixa o Menu Principal Colorido
 function menuColors(n){
 	for(var i = 1; i<=n; i++){
 		var x = document.getElementById('b'+i);
@@ -35,15 +42,14 @@ function menuColors(n){
 	ads.style.width = screen.width+"px";
 }
 
+//Parte Funcional do Jogo
 function play(){
 	//Variáveis
-	var menu1 = document.getElementById('menu');
 	var break1 = id1.getContext("2d");
 	var x=25, y=250, dx=2, dy=-4, ballr = 10;
 	var height1, width1, paddlex, bricks, nrows, ncols, brickwidth, brickheight, padding, i, j;
 	var paddleh=10, paddlew=75, canvasMinX=0, canvasMaxX=0, intervalId=0;
 	var paddlecolor = "#FFFFFF";
-	var ballcolor = "#FFFFFF";
 	var backcolor = "#000000";
 	rightDown = false;
 	leftDown = false;
@@ -52,29 +58,14 @@ function play(){
 	id1.style.display='block';
 	menu1.style.display='none';
 	sobre.style.display='none';
+	opcao.style.display='none';
 	document.getElementsByTagName('header')[0].style.display='none';
-	//window.addEventListener("resize",orient);
 	
-	function orient(){
-		id1.style.height=window.innerHeight+'px';
-		id1.style.width=window.innerWidth+'px';
-	}
-	/*screen.addEventListener("onmozorietationchange", orient2);
-	function orient2(){
-		switch(screen.orientation){
-			case "landscape":
-				id1.style.height = "318px";
-				id1.style.width = "460px";
-			break;
-			case "portrait":
-				id1.style.height = "460px";
-				id1.style.width = "318px";
-			break;
-		}
-	}*/
 	function init(){
 		width1 = id1.offsetWidth;
 		height1 = id1.offsetHeight;
+		screen.lockOrientation = "portrait";
+		screen.mozlockOrientation = "portrait";
 		return setInterval(draw, 10);
 	}
 	function initbricks(){
@@ -112,6 +103,7 @@ function play(){
 		break1.closePath();
 		break1.fill();
 	}
+	
 	//Touch
 	function onTouchMove(evt) {
 		var touch = evt.changedTouches[0];
@@ -123,6 +115,7 @@ function play(){
 		breakout.addEventListener("touchstart", onTouchMove, false);
 		breakout.addEventListener("touchmove", onTouchMove, false);
 	}
+	
 	function clear() {
 		break1.clearRect(0, 0, width1, height1);
 	}
@@ -182,22 +175,33 @@ function play(){
 	initTouch();
 }
 
-function options(){}
+//Ativa o Menu Opções
+function options(){
+	opcao.style.display='block';
+	id1.style.display='none';
+	sobre.style.display='none';
+	document.getElementById('back').style.display='block';
+	menu1.style.display='none';
+	document.getElementsByTagName('h1')[0].innerHTML = "Sobre";
+}
 
+//Volta a Página Inicial
 function back(){
 	ads.style.display = 'block';
 	id1.style.display='none';
 	sobre.style.display='none';
+	opcao.style.display='none';
 	document.getElementById('back').style.display='none';
-	document.getElementById('menu').style.display='block';
+	menu1.style.display='block';
 	document.getElementsByTagName('header')[0].style.display='block';
 	document.getElementsByTagName('h1')[0].innerHTML = version;
 }
 
+//Ativa o Menu Sobre
 function about(){
 	sobre.style.display='block';
 	id1.style.display='none';
 	document.getElementById('back').style.display='block';
-	document.getElementById('menu').style.display='none';
+	menu1.style.display='none';
 	document.getElementsByTagName('h1')[0].innerHTML = "Sobre";
 }

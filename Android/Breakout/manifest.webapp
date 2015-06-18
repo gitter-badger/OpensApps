@@ -12,6 +12,11 @@
 		"name": "Cleber Matheus",
 		"url": "http://clebermatheus.users.sf.net"
 	},
+	"locales": {
+		"en": {
+			"description": "Play breakout on your Mobile Device"
+		}
+	},
 	"permissions":{
 	},
 	"installs_allowed_from": ["*"],
