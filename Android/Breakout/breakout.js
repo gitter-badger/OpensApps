@@ -42,6 +42,12 @@ function menuColors(n){
 	ads.style.width = screen.width+"px";
 }
 
+/*function easy(){}
+
+function medium(){}
+
+function hard(){}*/
+
 //Parte Funcional do Jogo
 function play(){
 	//Variáveis
@@ -53,6 +59,8 @@ function play(){
 	var backcolor = "#000000";
 	rightDown = false;
 	leftDown = false;
+	
+	//medium();
 	
 	ads.style.display = 'none';
 	id1.style.display='block';
@@ -182,7 +190,7 @@ function options(){
 	sobre.style.display='none';
 	document.getElementById('back').style.display='block';
 	menu1.style.display='none';
-	document.getElementsByTagName('h1')[0].innerHTML = "Sobre";
+	document.getElementsByTagName('h1')[0].innerHTML = "Opções";
 }
 
 //Volta a Página Inicial

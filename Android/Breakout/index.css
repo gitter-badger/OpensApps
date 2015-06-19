@@ -70,7 +70,7 @@ article{
 	position: fixed;
 }
 
-@media (orientation:landscape){
+@media(orientation:landscape){
 	body{
 		-moz-transform: rotate(-90deg);
 		transform: rotate(-90deg);
