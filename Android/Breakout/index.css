@@ -60,14 +60,30 @@ canvas{
 }
 
 article{
-	top: 60px;
+	top: 45px;
 	background-color: #FF1C0A;
 	position: fixed;
+	width: 100%;
+	height: 100%;
 }
 
 #back{
 	left: 0px;
+	top: 5px;
 	position: fixed;
+}
+
+#opt{
+	top: 45px;
+	background-color: #FF1C0A;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+}
+
+#niveis button{
+	width: 75px;
+	height: 50px;
 }
 
 @media(orientation:landscape){

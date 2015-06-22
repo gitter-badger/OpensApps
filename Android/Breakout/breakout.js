@@ -22,52 +22,86 @@ var ads = document.getElementById('ads');
 var sobre = document.getElementById('sobre');
 var opcao = document.getElementById('opt');
 var menu1 = document.getElementById('menu');
+var break1 = id1.getContext("2d");
+var header = document.getElementsByTagName('header')[0];
+var niveis = document.getElementById('niveis');
 
 //Variáveis Essenciais para o Jogo
 var rowcolors = ["rgb(128,16,16)", "#FF1C0A", "#FFFD0A", "#00A308", "#0008DB", "#FFFFFF"];
 var version = "Breakout Beta 3";
 var ballcolor = "#FFFFFF";
+var paddlecolor = "#FFFFFF";
+var backcolor = "#000000";
+var dx, dy, ballr, nrows, ncols, brickheight;
+nivel = false;
 
 //Inicianlizando partes essenciais do Jogo
 document.getElementsByTagName('h1')[0].innerHTML = version;
-menu1.addEventListener('load', menuColors(4), false);
+menu1.addEventListener('load', menuColors(4, true), false);
+niveis.addEventListener('load', menuColors(3, false), false);
 
 //Deixa o Menu Principal Colorido
-function menuColors(n){
+function menuColors(n, top){
 	for(var i = 1; i<=n; i++){
 		var x = document.getElementById('b'+i);
 		x.style.backgroundColor = rowcolors[i];
-		x.style.top = 50*i+"px";
+		if(top){
+			x.style.top = 50*i+"px";
+		}
 	}
 	ads.style.width = screen.width+"px";
 }
 
-/*function easy(){}
+function easy(){
+	dx = 4;
+	dy = -4;
+	ballr = 15;
+	nrows = 5;
+	ncols = 5;
+	brickheight = 20;
+	nivel = true;
+}
 
-function medium(){}
+function medium(){
+	dx = 2;
+	dy = -4;
+	ballr = 10;
+	nrows = 10;
+	ncols = 5;
+	brickheight = 15;
+	nivel = false;
+}
 
-function hard(){}*/
+function hard(){
+	dx = 1;
+	dy = -8;
+	ballr = 5;
+	nrows = 15;
+	ncols = 5;
+	brickheight = 10;
+	nivel = true;
+}
 
 //Parte Funcional do Jogo
 function play(){
 	//Variáveis
-	var break1 = id1.getContext("2d");
-	var x=25, y=250, dx=2, dy=-4, ballr = 10;
-	var height1, width1, paddlex, bricks, nrows, ncols, brickwidth, brickheight, padding, i, j;
-	var paddleh=10, paddlew=75, canvasMinX=0, canvasMaxX=0, intervalId=0;
-	var paddlecolor = "#FFFFFF";
-	var backcolor = "#000000";
+	var x=25, y=250;
+	var height1, width1, paddlex, bricks, brickwidth, padding, i, j;
+	var paddleh, paddlew, canvasMinX=0, canvasMaxX=0, intervalId=0;
 	rightDown = false;
 	leftDown = false;
 	
-	//medium();
+	//Nível Padrão
+	if(!nivel){
+		medium();
+	}
 	
 	ads.style.display = 'none';
 	id1.style.display='block';
 	menu1.style.display='none';
 	sobre.style.display='none';
 	opcao.style.display='none';
-	document.getElementsByTagName('header')[0].style.display='none';
+	header.style.display='none';
 	
 	function init(){
 		width1 = id1.offsetWidth;
@@ -77,10 +111,7 @@ function play(){
 		return setInterval(draw, 10);
 	}
 	function initbricks(){
-		nrows = 10;
-		ncols = 5;
 		brickwidth = (width1/ncols)-1;
-		brickheight = 15;
 		padding = 1;
 		bricks = new Array(nrows);
 		for(i=0;i<nrows;i++){
@@ -154,12 +185,15 @@ function play(){
 		var colwidth = brickwidth + padding;
 		var row = Math.floor(y/rowheight);
 		var col = Math.floor(x/colwidth);
+		
+		//Destroi o brick
 		if(y < nrows*rowheight && row >=0 && col >= 0 && bricks[row][col] == 1){
 			dy = -dy;
 			bricks[row][col] = 0;
 		}
+		
 		if(x + dx + ballr > width1 || x + dx - ballr < 0){
-			dx= -dx;
+			dx = -dx;
 		}
 		if (y + dy - ballr < 0){
 			dy = -dy;
@@ -201,7 +235,7 @@ function back(){
 	opcao.style.display='none';
 	document.getElementById('back').style.display='none';
 	menu1.style.display='block';
-	document.getElementsByTagName('header')[0].style.display='block';
+	header.style.display='block';
 	document.getElementsByTagName('h1')[0].innerHTML = version;
 }
 
