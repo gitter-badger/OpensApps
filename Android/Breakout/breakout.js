@@ -24,7 +24,6 @@ var opcao = document.getElementById('opt');
 var menu1 = document.getElementById('menu');
 var break1 = id1.getContext("2d");
 var header = document.getElementsByTagName('header')[0];
-var niveis = document.getElementById('niveis');
 
 //Variáveis Essenciais para o Jogo
 var rowcolors = ["rgb(128,16,16)", "#FF1C0A", "#FFFD0A", "#00A308", "#0008DB", "#FFFFFF"];
@@ -38,7 +37,32 @@ nivel = false;
 //Inicianlizando partes essenciais do Jogo
 document.getElementsByTagName('h1')[0].innerHTML = version;
 menu1.addEventListener('load', menuColors(4, true), false);
-niveis.addEventListener('load', menuColors(3, false), false);
+window.addEventListener('load', themes(), false);
+
+function selectNivel(){
+	var index = document.getElementById('niveis');
+	switch(index.options[index.selectedIndex].value){
+		case "easy":
+			easy();
+			break;
+		case "medium":
+			medium();
+			break;
+		case "hard":
+			hard();
+			break;
+	}
+}
+
+function themes(){
+	var index = document.getElementById('theme');
+	var style = document.getElementById("themeFile");
+	switch(index.options[index.selectedIndex].value){
+		case "default":
+			style.href = "default.css";
+			break;
+	}
+}
 
 //Deixa o Menu Principal Colorido
 function menuColors(n, top){
@@ -203,8 +227,9 @@ function play(){
 				dx = 8 * ((x-(paddlex+paddlew/2))/paddlew);
 				dy = -dy;
 			}
-			else if (y + dy + ballr > HEIGHT){
-				clearInterval(intervalId);
+			else{
+				//Você Perdeu! - Colocar como Uma Mensagem e fechar o canvas
+				document.location.reload();
 			}
 		}
 		x+=dx;

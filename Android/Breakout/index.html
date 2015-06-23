@@ -20,12 +20,12 @@
 	<head>
 		<meta charset="UTF-8"/>
 		<title>Breakout</title>
-		<link rel="stylesheet" href="index.css"/>
+		<link rel="stylesheet" href="default.css" id="themeFile"/>
 		<meta name="generator" content="Firefox WebIDE"/>
 		<meta name="author" content="Cleber Matheus"/>
 		<link rel="shortcut icon" href="favicon.png"/>
 		<meta name="reply-to" content="clebermatheus@outlook.com"/>
-		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
 	</head>
 	<body>
 		<header>
@@ -43,22 +43,18 @@
 		</canvas>
 		<section id="opt" style="display: none">
 			<p>Nível de Jogo</p>
-			<section id="niveis">
-				<!--
-					Falta Colorir este Botões!
-					Transforma esta parte em Um Select!
-				-->
-				<button id="b1" onclick="easy()">Fácil</button>
-				<button id="b2" onclick="medium()">Médio</button>
-				<button id="b3" onclick="hard()">Dificíl</button>
-			</section>
+			<select id="niveis" onchange="selectNivel()">
+				<option value="easy">Fácil</option>
+				<option value="medium" selected>Médio</option>
+				<option value="hard">Difícil</option>
+			</select>
 			<p>Temas</p>
-			<select>
-				<option disabled>Em Breve!</option>
+			<select id="theme" onchange="themes()">
+				<option value="default" select>Padrão</option>
 			</select>
 			<p>Idioma</p>
 			<select>
-				<option disabled>Em Breve!</option>
+				<option value="ptbr">Português (Brasil)</option>
 			</select>
 		</section>
 		<section id="sobre" style="display: none">
