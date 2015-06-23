@@ -33,35 +33,36 @@
 			<a id="back" href="javascript:back()" style="display: none"><img src="./images/back.png"/></a>
 		</header>
 		<section id="menu">
-			<a id="b1" href="javascript:play()">Jogar</a>
-			<a id="b2" href="javascript:options()">Opções</a>
-			<a id="b3" href="javascript:about()">Sobre</a>
-			<a id="b4" href="javascript:window.close()">Sair</a>
+			<a id="b1" href="javascript:play()"></a>
+			<a id="b2" href="javascript:options()"></a>
+			<a id="b3" href="javascript:about()"></a>
+			<a id="b4" href="javascript:window.close()"></a>
 		</section>
 		<canvas id="breakout" height="460" width="318">
-			<p style="color: red;">O seu browser não suporta Canvas!</p>
+			<p style="color: red;" id="error"></p>
 		</canvas>
 		<section id="opt" style="display: none">
-			<p>Nível de Jogo</p>
+			<p id="nivelTitle"></p>
 			<select id="niveis" onchange="selectNivel()">
-				<option value="easy">Fácil</option>
-				<option value="medium" selected>Médio</option>
-				<option value="hard">Difícil</option>
+				<option id="n0" value="easy"></option>
+				<option id="n1" value="medium" selected></option>
+				<option id="n2" value="hard"></option>
 			</select>
-			<p>Temas</p>
+			<p id="themeTitle"></p>
 			<select id="theme" onchange="themes()">
-				<option value="default" select>Padrão</option>
+				<option id="t0" value="default" selected></option>
 			</select>
-			<p>Idioma</p>
-			<select>
-				<option value="ptbr">Português (Brasil)</option>
+			<p id="langTitle"></p>
+			<select id="langSel" onchange="langs()">
+				<option id="l0" value="en"></option>
+				<option id="l1" value="ptbr" selected></option>
 			</select>
+			<p id="corTitle"></p>
+			<p>Em Breve!</p>
 		</section>
 		<section id="sobre" style="display: none">
 			<article>
-				<p>Jogo criado com o intuito de proporcionar uma experiência que seja o mais leve possível e intuitiva se perder a jogabilidade.</p>
-				<p>Breakout, 0.7 - 2015</p>
-				<p>Criado por Cleber Matheus (clebermatheus@outlook.com)</p>
+				<p id="contAbout"></p>
 			</article>
 		</section>
 		<div id="ads">
@@ -74,6 +75,7 @@
 			</script>
 			<script type="text/javascript" src="http://static.boo-box.com/javascripts/embed.js"></script>
 		</div>
-		<script type="text/javascript" async src="breakout.js"></script>
+		<script type="text/javascript" async="" src="lang.js"></script>
+		<script type="text/javascript" async="" src="breakout.js"></script>
 	</body>
 </html>

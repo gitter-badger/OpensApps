@@ -27,17 +27,17 @@ var header = document.getElementsByTagName('header')[0];
 
 //Variáveis Essenciais para o Jogo
 var rowcolors = ["rgb(128,16,16)", "#FF1C0A", "#FFFD0A", "#00A308", "#0008DB", "#FFFFFF"];
-var version = "Breakout Beta 3";
 var ballcolor = "#FFFFFF";
 var paddlecolor = "#FFFFFF";
 var backcolor = "#000000";
 var dx, dy, ballr, nrows, ncols, brickheight;
+var lang;
 nivel = false;
 
 //Inicianlizando partes essenciais do Jogo
-document.getElementsByTagName('h1')[0].innerHTML = version;
 menu1.addEventListener('load', menuColors(4, true), false);
 window.addEventListener('load', themes(), false);
+window.addEventListener('load', langs(), false);
 
 function selectNivel(){
 	var index = document.getElementById('niveis');
@@ -52,6 +52,19 @@ function selectNivel(){
 			hard();
 			break;
 	}
+}
+
+function langs(){
+	var index = document.getElementById('langSel');
+	switch(index.options[index.selectedIndex].value){
+		case "en":
+			lang = en;
+			break;
+		case "ptbr":
+			lang = ptbr;
+			break;
+	}
+	initLang(4);
 }
 
 function themes(){
@@ -249,7 +262,7 @@ function options(){
 	sobre.style.display='none';
 	document.getElementById('back').style.display='block';
 	menu1.style.display='none';
-	document.getElementsByTagName('h1')[0].innerHTML = "Opções";
+	document.getElementsByTagName('h1')[0].innerHTML = lang.bX[1];
 }
 
 //Volta a Página Inicial
@@ -270,5 +283,5 @@ function about(){
 	id1.style.display='none';
 	document.getElementById('back').style.display='block';
 	menu1.style.display='none';
-	document.getElementsByTagName('h1')[0].innerHTML = "Sobre";
+	document.getElementsByTagName('h1')[0].innerHTML = lang.bX[2];
 }
