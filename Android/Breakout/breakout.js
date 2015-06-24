@@ -31,13 +31,15 @@ var ballcolor = "#FFFFFF";
 var paddlecolor = "#FFFFFF";
 var backcolor = "#000000";
 var dx, dy, ballr, nrows, ncols, brickheight;
+var version = "Breakout Beta 3";
 var lang;
 nivel = false;
 
 //Inicianlizando partes essenciais do Jogo
+document.getElementsByTagName('h1')[0].innerHTML = version;
 menu1.addEventListener('load', menuColors(4, true), false);
 window.addEventListener('load', themes(), false);
-window.addEventListener('load', langs(), false);
+window.addEventListener('load', langDef(window.navigator.language), false);
 
 function selectNivel(){
 	var index = document.getElementById('niveis');
@@ -54,14 +56,58 @@ function selectNivel(){
 	}
 }
 
+function langDef(language){
+	switch(language){
+		case "de":
+			lang = de;
+			break;
+		case "en": case "en-US":
+			lang = en;
+			break;
+		case "es":
+			lang = es;
+			break;
+		case "pt":
+			lang = pt;
+			break;
+		case "pt-BR":
+			lang = ptbr;
+			break;
+		case "ru":
+			lang = ru;
+			break;
+		case "zh-TW":
+			lang = zhtw;
+			break;
+		default:
+			lang = ptbr;
+	}
+	initLang(4);
+}
+
 function langs(){
 	var index = document.getElementById('langSel');
 	switch(index.options[index.selectedIndex].value){
+		case "de":
+			lang = de;
+			break;
 		case "en":
 			lang = en;
 			break;
+		case "es":
+			lang = es;
+			break;
+		case "pt":
+			lang = pt;
+			break;
 		case "ptbr":
 			lang = ptbr;
+			break;
+		case "ru":
+			lang = ru;
+			break;
+		case "zhtw":
+			lang = zhtw;
 			break;
 	}
 	initLang(4);
