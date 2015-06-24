@@ -57,30 +57,40 @@ function selectNivel(){
 }
 
 function langDef(language){
+	var index = document.getElementById('langSel');
+	index.options[index.selectedIndex].selected = false;
 	switch(language){
 		case "de":
 			lang = de;
+			index.options[0].selected = true;
 			break;
 		case "en": case "en-US":
 			lang = en;
+			index.options[2].selected = true;
 			break;
 		case "es":
 			lang = es;
+			index.options[3].selected = true;
 			break;
 		case "pt":
 			lang = pt;
+			index.options[4].selected = true;
 			break;
 		case "pt-BR":
 			lang = ptbr;
+			index.options[5].selected = true;
 			break;
 		case "ru":
 			lang = ru;
+			index.options[1].selected = true;
 			break;
 		case "zh-TW":
 			lang = zhtw;
+			index.options[6].selected = true;
 			break;
 		default:
 			lang = ptbr;
+			index.options[5].selected = true;
 	}
 	initLang(4);
 }
