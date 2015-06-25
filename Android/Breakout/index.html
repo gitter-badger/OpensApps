@@ -20,12 +20,19 @@
 	<head>
 		<meta charset="UTF-8"/>
 		<title>Breakout</title>
-		<link rel="stylesheet" href="default.css" id="themeFile"/>
+		<link rel="stylesheet" href="theme/default.css" id="themeFile"/>
 		<meta name="generator" content="Firefox WebIDE"/>
 		<meta name="author" content="Cleber Matheus"/>
 		<link rel="shortcut icon" href="favicon.png"/>
 		<meta name="reply-to" content="clebermatheus@outlook.com"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+		<style>
+			#paleta a{
+				width: 40px;
+				height: 40px;
+				position: absolute;
+			}
+		</style>
 	</head>
 	<body>
 		<header>
@@ -51,6 +58,7 @@
 			<p id="themeTitle"></p>
 			<select id="theme" onchange="themes()">
 				<option id="t0" value="default" selected></option>
+				<option id="t1" value="alternate"></option>
 			</select>
 			<p id="langTitle"></p>
 			<select id="langSel" onchange="langs()">
@@ -63,7 +71,13 @@
 				<option id="l6" value="ru"></option>
 			</select>
 			<p id="corTitle"></p>
-			<p>Em Breve!</p>
+			<section id="paleta">
+				<a id="c0" href="javascript:cor('#FFFFFF', 'c0')" style="background-color: #FFFFFF"></a>
+				<a id="c1" href="javascript:cor('#000000', 'c1')" style="background-color: #000000"></a>
+				<a id="c2" href="javascript:cor('#0000FF', 'c2')" style="background-color: #0000FF"></a>
+				<a id="c3" href="javascript:cor('#FFFF00', 'c3')" style="background-color: #FFFF00"></a>
+				<a id="c4" href="javascript:cor('#00FF00', 'c4')" style="background-color: #00FF00"></a>
+			</section>
 		</section>
 		<section id="sobre" style="display: none">
 			<article>
@@ -80,6 +94,8 @@
 			</script>
 			<script type="text/javascript" src="http://static.boo-box.com/javascripts/embed.js"></script>
 		</div>
+		<script type="text/javascript" async="" src="theme/default.js"></script>
+		<script type="text/javascript" async="" src="theme/alternate.js"></script>
 		<script type="text/javascript" async="" src="lang.js"></script>
 		<script type="text/javascript" async="" src="breakout.js"></script>
 	</body>

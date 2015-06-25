@@ -33,7 +33,7 @@ body{
 h1{
 	font-size: 20px;
 	position: fixed;
-	background: rgb(128,16,16);
+	background: rgb(0, 26, 0);
 	height: 40px;
 	top: -10px;
 	width: 100%;
@@ -64,7 +64,7 @@ canvas{
 
 article{
 	top: 45px;
-	background-color: #FF1C0A;
+	background-color: #004C00;
 	position: fixed;
 	width: 100%;
 	height: 100%;
@@ -78,7 +78,7 @@ article{
 
 #opt{
 	top: 45px;
-	background-color: #FF1C0A;
+	background-color: #004C00;
 	position: fixed;
 	width: 100%;
 	height: 100%;
@@ -88,6 +88,14 @@ article{
 	width: 75px;
 	height: 50px;
 }
+
+#paleta{
+	width: 100%;
+	height: 40px;
+	position: fixed;
+	margin-left: 20%;
+}
+
 
 @media(orientation:landscape){
 	body{

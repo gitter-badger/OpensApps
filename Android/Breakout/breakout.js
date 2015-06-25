@@ -26,20 +26,19 @@ var break1 = id1.getContext("2d");
 var header = document.getElementsByTagName('header')[0];
 
 //Variáveis Essenciais para o Jogo
-var rowcolors = ["rgb(128,16,16)", "#FF1C0A", "#FFFD0A", "#00A308", "#0008DB", "#FFFFFF"];
 var ballcolor = "#FFFFFF";
-var paddlecolor = "#FFFFFF";
-var backcolor = "#000000";
 var dx, dy, ballr, nrows, ncols, brickheight;
 var version = "Breakout Beta 3";
 var lang;
+var theme;
 nivel = false;
 
 //Inicianlizando partes essenciais do Jogo
 document.getElementsByTagName('h1')[0].innerHTML = version;
-menu1.addEventListener('load', menuColors(4, true), false);
-window.addEventListener('load', themes(), false);
 window.addEventListener('load', langDef(window.navigator.language), false);
+window.addEventListener('load', themes(), false);
+window.addEventListener('load', cores(5), false);
+menu1.addEventListener('load', menuColors(4, true), false);
 
 function selectNivel(){
 	var index = document.getElementById('niveis');
@@ -128,21 +127,40 @@ function themes(){
 	var style = document.getElementById("themeFile");
 	switch(index.options[index.selectedIndex].value){
 		case "default":
-			style.href = "default.css";
+			style.href = "theme/default.css";
+			theme = padrao;
+			break;
+		case "alternate":
+			style.href = "theme/alternate.css";
+			theme = alternate;
 			break;
 	}
+	menuColors(4, true);
 }
 
 //Deixa o Menu Principal Colorido
 function menuColors(n, top){
 	for(var i = 1; i<=n; i++){
 		var x = document.getElementById('b'+i);
-		x.style.backgroundColor = rowcolors[i];
+		x.style.backgroundColor = theme.rowcolors[i];
 		if(top){
 			x.style.top = 50*i+"px";
 		}
 	}
 	ads.style.width = screen.width+"px";
+}
+
+function cor(color, cX){
+	ballcolor = color;
+	var x = document.getElementById(cX);
+	x.style.backgroundColor = color;
+}
+
+function cores(n){
+	for(var i = 0; i<n; i++){
+		var x = document.getElementById('c'+i);
+		x.style.left = 40*i+"px";
+	}
 }
 
 function easy(){
@@ -252,7 +270,7 @@ function play(){
 		break1.clearRect(0, 0, width1, height1);
 	}
 	function draw(){
-		break1.fillStyle = backcolor;
+		break1.fillStyle = theme.backcolor;
 		clear();
 		break1.fillStyle = ballcolor;
 		circle(x, y, ballr);
@@ -262,12 +280,12 @@ function play(){
 		else if (leftDown){
 			paddlex -= 5;
 		}
-		break1.fillStyle = paddlecolor;
+		break1.fillStyle = theme.paddlecolor;
 		rect(paddlex, height1 - paddleh, paddlew, paddleh);
 	
 		//desenha bricks
 		for (i=0; i < nrows; i++) {
-			break1.fillStyle = rowcolors[i];
+			break1.fillStyle = theme.rowcolors[i];
 			for (j=0; j < ncols; j++) {
 				if (bricks[i][j] == 1) {
 					rect((j * (brickwidth + padding)) + padding, (i * (brickheight + padding)) + padding, brickwidth, brickheight);

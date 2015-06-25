@@ -24,7 +24,7 @@ var de = {
 	idioma: "Sprache",
 	cor: "Farbe von Ball",
 	nX: ["Einfach", "Durchschnitt", "Schwer"],
-	tX: ["Standard"],
+	tX: ["Standard", "Alternative"],
 	lX: ["Deutsch", "Chinesische Tradition", "Englisch", "Spanisch", "Portugiesisch (Portugal)", "Portugiesisch (Brasilien)", "Russisch"],
 	contSobre: "Spiel, um eine Erfahrung, die so leicht wie möglich ist und verlor intuitive Gameplay bieten bekommen erstellt.<br/>Breakout, 0.7 - 2015<br/>Erstellt von Cleber Matheus (clebermatheus@outlook.com)"
 };
@@ -37,7 +37,7 @@ var en = {
 	idioma: "Language",
 	cor: "Color from Ball",
 	nX: ["Easy", "Medium", "Hard"],
-	tX: ["Default"],
+	tX: ["Default", "Alternate"],
 	lX: ["German", "Chinese Traditional", "English", "Espanhol", "Portuguese (Portugal)", "Portuguese (Brazil)", "Russian"],
 	contSobre: "Game created with the aim of providing an experience that is as light as possible and if I lose the intuitive gameplay.<br/>Breakout, 0.7 - 2015<br/>Created by Cleber Matheus (clebermatheus@outlook.com)"
 };
@@ -50,7 +50,7 @@ var es = {
 	idioma: "Idioma",
 	cor: "Color de Bola",
 	nX: ["Fácil", "Medio", "Difícil"],
-	tX: ["Standard"],
+	tX: ["Standard", "Alternativa"],
 	lX: ["Alemán", "Chino Tradicional", "Inglés", "Español", "Portugués (Portugal)", "Portugués (Brazil)", "Ruso"],
 	contSobre: "Juego creado con el objetivo de brindar una experiencia que es tan ligera como sea posible y si pierdo el juego intuitivo.<br/>Breakout, 0.7 - 2015<br/>Creado por Cleber Matheus (clebermatheus@outlook.com)"
 };
@@ -63,7 +63,7 @@ var pt = {
 	idioma: "Idioma",
 	cor: "Cor da Bolinha",
 	nX: ["Fácil", "Médio", "Difícil"],
-	tX: ["Padrão"],
+	tX: ["Padrão", "Alternativo"],
 	lX: ["Alemão", "Chinês Tradicional", "Inglês", "Espanhol", "Português (Portugal)", "Português (Brasil)", "Russo"],
 	contSobre: "Jogo criado com o intuito de proporcionar uma experiência que seja o mais leve possível e intuitiva se perder a jogabilidade.<br/>Breakout, 0.7 - 2015<br/>Criado por Cleber Matheus (clebermatheus@outlook.com)"
 };
@@ -76,7 +76,7 @@ var ptbr = {
 	idioma: "Idioma",
 	cor: "Cor da Bolinha",
 	nX: ["Fácil", "Médio", "Difícil"],
-	tX: ["Padrão"],
+	tX: ["Padrão", "Alternativo"],
 	lX: ["Alemão", "Chinês Tradicional", "Inglês", "Espanhol", "Português (Portugal)", "Português (Brasil)", "Russo"],
 	contSobre: "Jogo criado com o intuito de proporcionar uma experiência que seja o mais leve possível e intuitiva se perder a jogabilidade.<br/>Breakout, 0.7 - 2015<br/>Criado por Cleber Matheus (clebermatheus@outlook.com)"
 };
@@ -89,7 +89,7 @@ var ru = {
 	idioma: "язык",
 	cor: "Цвет от мяча",
 	nX: ["Легко", "Средний", "Жесткий"],
-	tX: ["стандарт"],
+	tX: ["стандарт", "Альтернатива"],
 	lX: ["немецкий", "Традиционный китайский", "английский", "испанский", "португальский (Португалия)", "португальский (Бразилия)", "русский"],
 	contSobre: "Игра, созданная с целью предоставления опыт, как свет, как это возможно и если я теряю интуитивный геймплей.<br/>Breakout, 0.7 - 2015<br/>Создан Cleber Matheus (clebermatheus@outlook.com)"
 };
@@ -102,7 +102,7 @@ var zhtw = {
 	idioma: "語言",
 	cor: "從球的顏色",
 	nX: ["容易", "介質", "硬"],
-	tX: ["預設"],
+	tX: ["預設", "替代"],
 	lX: ["德語", "繁體中文", "英語", "西班牙文", "葡萄牙文 (葡萄牙)", "葡萄牙文 (巴西)", "俄語"],
 	contSobre: "創建，目的是提供一種體驗，是輕如可能，如果失去了一個直觀的遊戲的遊戲。<br/>突圍，0.7-2015 年<br/>由 Cleber · 馬修斯 (clebermatheus@outlook.com)"
 };
