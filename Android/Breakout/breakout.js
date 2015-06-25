@@ -33,12 +33,79 @@ var lang;
 var theme;
 nivel = false;
 
+function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0; i<ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1);
+        if (c.indexOf(name) == 0) return c.substring(name.length,c.length);
+    }
+    return "";
+} 
+
+function saveConfigs(){
+	var index = document.getElementById('niveis');
+	var temInd = document.getElementById('theme');
+	var langSel = document.getElementById('langSel');
+	
+	document.cookie = "nivel="+index.options[index.selectedIndex].value;
+	document.cookie = "theme="+temInd.options[temInd.selectedIndex].value;
+	document.cookie = "lang="+langSel.options[langSel.selectedIndex].value;
+	document.cookie = "cor="+ballcolor;
+}
+
+function loadConfig(){
+	var index = document.getElementById('niveis');
+	var temInd = document.getElementById('theme');
+	var cookie;
+	
+	cookie = getCookie("lang");
+	if(cookie!=""){
+		langDef(cookie);
+	}
+	else{
+		langDef(window.navigator.language)
+	}
+	cookie = getCookie("nivel");
+	if(cookie!=""){
+		switch(cookie){
+			case "easy":
+				index.options[0].selected = true;
+				break;
+			case "medium":
+				index.options[1].selected = true;
+				break;
+			case "hard":
+				index.options[2].selected = true;
+				break;
+		}
+		selectNivel();
+	}
+	cookie = getCookie("theme");
+	if(cookie!=""){
+		switch(cookie){
+			case "default":
+				temInd.options[0].selected = true;
+				break;
+			case "alternate":
+				temInd.options[1].selected = true;
+				break;
+		}
+		themes();
+	}
+	cookie = getCookie("cor");
+	if(cookie!=""){
+		ballcolor = cookie;
+	}
+	themes();
+	cores(5);
+	menuColors(4, true);
+}
+
 //Inicianlizando partes essenciais do Jogo
 document.getElementsByTagName('h1')[0].innerHTML = version;
-window.addEventListener('load', langDef(window.navigator.language), false);
-window.addEventListener('load', themes(), false);
-window.addEventListener('load', cores(5), false);
-menu1.addEventListener('load', menuColors(4, true), false);
+window.addEventListener('load', loadConfig(), false);
 
 function selectNivel(){
 	var index = document.getElementById('niveis');
@@ -53,6 +120,7 @@ function selectNivel(){
 			hard();
 			break;
 	}
+	saveConfigs();
 }
 
 function langDef(language){
@@ -120,6 +188,7 @@ function langs(){
 			break;
 	}
 	initLang(4);
+	saveConfigs();
 }
 
 function themes(){
@@ -136,6 +205,7 @@ function themes(){
 			break;
 	}
 	menuColors(4, true);
+	saveConfigs();
 }
 
 //Deixa o Menu Principal Colorido
@@ -154,6 +224,7 @@ function cor(color, cX){
 	ballcolor = color;
 	var x = document.getElementById(cX);
 	x.style.backgroundColor = color;
+	saveConfigs();
 }
 
 function cores(n){
