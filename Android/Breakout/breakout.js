@@ -24,6 +24,7 @@ var opcao = document.getElementById('opt');
 var menu1 = document.getElementById('menu');
 var break1 = id1.getContext("2d");
 var header = document.getElementsByTagName('header')[0];
+var pontA = document.getElementById('pontAtual');
 
 //Variáveis Essenciais para o Jogo
 var ballcolor = "#FFFFFF";
@@ -31,6 +32,7 @@ var dx, dy, ballr, nrows, ncols, brickheight;
 var version = "Breakout Beta 3";
 var lang;
 var theme;
+var placar = 0;
 nivel = false;
 
 function getCookie(cname) {
@@ -106,6 +108,14 @@ function loadConfig(){
 //Inicianlizando partes essenciais do Jogo
 document.getElementsByTagName('h1')[0].innerHTML = version;
 window.addEventListener('load', loadConfig(), false);
+window.addEventListener('load', function (){
+	document.getElementById('rTitle').style.backgroundColor = theme.rowcolors[3];
+	document.getElementById('result').style.backgroundColor = theme.rowcolors[4];
+}, false);
+document.getElementById('result').addEventListener('click', function (){
+	document.getElementById('result').style.display = "none";
+	document.location.reload();
+}, false);
 
 function selectNivel(){
 	var index = document.getElementById('niveis');
@@ -204,6 +214,8 @@ function themes(){
 			theme = alternate;
 			break;
 	}
+	document.getElementById('rTitle').style.backgroundColor = theme.rowcolors[3];
+	document.getElementById('result').style.backgroundColor = theme.rowcolors[4];
 	menuColors(4, true);
 	saveConfigs();
 }
@@ -235,7 +247,7 @@ function cores(n){
 }
 
 function easy(){
-	dx = 4;
+	dx = 3;
 	dy = -4;
 	ballr = 15;
 	nrows = 5;
@@ -264,6 +276,15 @@ function hard(){
 	nivel = true;
 }
 
+function endGame(resultado){
+	id1.style.display = "none";
+	pontA.style.display = "none";
+	document.getElementById('result').style.display = "block";
+	document.getElementById('rTitle').innerHTML = resultado;
+	document.getElementById('ponts').innerHTML = lang.end[2]+placar+lang.end[3];
+	document.body.style.overflow = "auto";
+}
+
 //Parte Funcional do Jogo
 function play(){
 	//Variáveis
@@ -277,6 +298,7 @@ function play(){
 	if(!nivel){
 		medium();
 	}
+	var cont = nrows*ncols;
 	
 	ads.style.display = 'none';
 	id1.style.display='block';
@@ -284,6 +306,8 @@ function play(){
 	sobre.style.display='none';
 	opcao.style.display='none';
 	header.style.display='none';
+	pontA.style.display = "block";
+	document.body.style.overflow = "hidden";
 	
 	function init(){
 		width1 = id1.offsetWidth;
@@ -372,8 +396,14 @@ function play(){
 		if(y < nrows*rowheight && row >=0 && col >= 0 && bricks[row][col] == 1){
 			dy = -dy;
 			bricks[row][col] = 0;
+			cont--;
+			placar += 10*(nrows-row);
+			pontA.innerHTML = lang.end[2]+placar+lang.end[3];
 		}
 		
+		if(cont == 0){
+			endGame(lang.end[0]);
+		}
 		if(x + dx + ballr > width1 || x + dx - ballr < 0){
 			dx = -dx;
 		}
@@ -386,8 +416,7 @@ function play(){
 				dy = -dy;
 			}
 			else{
-				//Você Perdeu! - Colocar como Uma Mensagem e fechar o canvas
-				document.location.reload();
+				endGame(lang.end[1]);
 			}
 		}
 		x+=dx;

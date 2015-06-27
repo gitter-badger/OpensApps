@@ -31,11 +31,10 @@ body{
 	text-align: center;
 }
 h1{
-	font-size: 20px;
 	position: fixed;
 	background: rgb(0, 26, 0);
 	height: 40px;
-	top: -10px;
+	top: -20px;
 	width: 100%;
 }
 canvas{
@@ -53,6 +52,7 @@ canvas{
 	text-decoration: none;
 	width: 100%;
 	position: absolute;
+	line-height: 35px;
 }
 
 #ads{
@@ -96,6 +96,26 @@ article{
 	margin-left: 20%;
 }
 
+#result{
+	position: absolute;
+	width: 80%;
+	height: 30%;
+	margin: 10%;
+	margin-top: 50%;
+}
+
+#rTitle{
+	height: 40px;
+	width: 80%;
+	font-size: 30px;
+	position: fixed;
+	margin-top: 0%;
+}
+
+#ponts{
+	margin-top: 30%;
+	font-size: 20px;
+}
 
 @media(orientation:landscape){
 	body{

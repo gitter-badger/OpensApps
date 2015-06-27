@@ -25,7 +25,7 @@
 		<meta name="author" content="Cleber Matheus"/>
 		<link rel="shortcut icon" href="favicon.png"/>
 		<meta name="reply-to" content="clebermatheus@outlook.com"/>
-		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, height=device-height"/>
 		<style>
 			#paleta a{
 				width: 40px;
@@ -45,9 +45,14 @@
 			<a id="b3" href="javascript:about()"></a>
 			<a id="b4" href="javascript:window.close()"></a>
 		</section>
-		<canvas id="breakout" height="460" width="318">
+		<canvas id="breakout" height="450" width="318">
 			<p style="color: red;" id="error"></p>
 		</canvas>
+		<p id="pontAtual" style="display: none;"></p>
+		<div id="result" style="display: none; z-index: 1000">
+			<p id="rTitle"></p>
+			<p id="ponts"></p>
+		</div>
 		<section id="opt" style="display: none">
 			<p id="nivelTitle"></p>
 			<select id="niveis" onchange="selectNivel()">
