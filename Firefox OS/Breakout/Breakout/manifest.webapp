@@ -1,8 +1,9 @@
 {
-	"version": "0.6.5",
+	"version": "0.7",
 	"name": "Breakout",
-	"description": "Jogue breakout no Firefox OS",
+	"description": "Jogue breakout no seu dispositivo Mobile",
 	"launch_path": "/index.html",
+	"orientation": "portrait",
 	"icons": {
 		"60": "/favicon.png",
 		"128": "/favicon128.png"
@@ -10,6 +11,30 @@
 	"developer": {
 		"name": "Cleber Matheus",
 		"url": "http://clebermatheus.users.sf.net"
+	},
+	"locales": {
+		"de": {
+			"description": "Spielen Breakout auf Ihrem Mobilgerät"
+		},
+		"en": {
+			"description": "Play breakout on your Mobile Device"
+		},
+		"en-US": {
+			"description": "Play breakout on your Mobile Device"
+		},
+		"es": {
+			"description": "Jugar breakout en tu Dispositivo Móvil"
+		},
+		"pt": {
+			"description": "Jogue breakout no seu dispositivo Mobile"
+		},
+		"ru": {
+			"description": "Играть прорыва на вашем мобильном устройстве"
+		},
+		"zh-tw": {
+			"name": "突破",
+			"description": "在您的行動裝置上玩突圍"
+		}
 	},
 	"permissions":{
 	},
